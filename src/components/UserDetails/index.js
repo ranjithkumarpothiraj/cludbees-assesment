@@ -13,6 +13,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import './style.css'
+import { COMPANY_LABEL, FIRST_NAME_LABEL, LOADER_TEXT, LOCATION_LABEL, SECOND_NAME_LABEL, USER_DETAILS_TEXT, USER_NOT_FOUND_TEXT } from '../../constants';
 
 
 const UserDetails = () => {
@@ -20,25 +21,25 @@ const UserDetails = () => {
   const [user, setUser] = useState("");
   useEffect(() => {
     if (username) {
-      fetch(`https://api.github.com/users/${username}`)
+      fetch(`${BASE_URL}/${username}`)
         .then((res) => res.json())
         .then((data) => (setUser(data)))
         .catch((err) => console.error(err))
     }
   }, [username])
 
-  const FIRST_NAME_LABEL = "First Name :";
-  const SECOND_NAME_LABEL = "Second Name :";
-  const COMPANY_LABEL = "Company :";
-  const LOCATION_LABEL = "Location :";
-  const USER_NOT_FOUND_TEXT = "User not found";
-  const LOADER_TEXT = "Fetching user details..."
-
   {
-    const { id, name, avatar_url, login, company, location, message } = user
+    const { 
+      id,
+      name,
+      avatar_url, 
+      login, 
+      company, 
+      location, 
+      message } = user
     return (
       <>
-        <div className='header'>User Details</div>
+        <div className='header'>{USER_DETAILS_TEXT}</div>
         {id ?
           <Paper className='profile-details' elevation={3} >
             <Avatar src={avatar_url} sx={{ width: "200px", height: "200px", margin: "30px 0px" }} />

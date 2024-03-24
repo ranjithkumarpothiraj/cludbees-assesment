@@ -11,6 +11,7 @@ import ListItem from "@material-ui/core/ListItem"
 import ListItemAvatar from "@material-ui/core/ListItemAvatar"
 import ListItemText from "@material-ui/core/ListItemText"
 import './style.css'
+import { BASE_URL, LOADER_TEXT, User_LIST_TEXT } from "../../constants";
 
 const UserList = () => {
 
@@ -22,7 +23,7 @@ const UserList = () => {
   }, [])
 
   function fetchData() {
-    fetch("https://api.github.com/users")
+    fetch(BASE_URL)
       .then((res) => res.json())
       .then((data) => (setUsers(data)))
       .catch((err) => console.error(err))
@@ -34,11 +35,9 @@ const UserList = () => {
     position: 'relative',
   });
 
-  const LOADER_TEXT = 'Fething Details...'
-
   return (
     <>
-      <div className='header'>User List</div>
+      <div className='header'>{User_LIST_TEXT}</div>
       <StyledList >
         {users.length ? users.map((user, index) => {
           let { id, avatar_url, login } = user

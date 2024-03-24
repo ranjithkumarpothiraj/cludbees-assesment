@@ -1,6 +1,8 @@
+import { PAGE_NOT_FOUND } from "../../constants"
+
 const PageNotFound = () => {
   return (
-    <div>PageNotFound</div>
+    <div className="loader">{PAGE_NOT_FOUND}</div>
   )
 }
 export default PageNotFound
