@@ -13,7 +13,7 @@ import TableRow from '@material-ui/core/TableRow';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import './style.css'
-import { COMPANY_LABEL, FIRST_NAME_LABEL, LOADER_TEXT, LOCATION_LABEL, SECOND_NAME_LABEL, USER_DETAILS_TEXT, USER_NOT_FOUND_TEXT } from '../../constants';
+import { BASE_URL, COMPANY_LABEL, FIRST_NAME_LABEL, LOADER_TEXT, LOCATION_LABEL, SECOND_NAME_LABEL, USER_DETAILS_TEXT, USER_NOT_FOUND_TEXT } from '../../constants';
 
 
 const UserDetails = () => {
